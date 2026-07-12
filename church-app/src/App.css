@@ -69,6 +69,7 @@ body {
   min-height: 92vh;
   display: flex;
   flex-direction: column;
+  overflow: hidden; 
   background:
     linear-gradient(
       to top,
@@ -79,6 +80,16 @@ body {
     ),
     url("./assets/church.png") center / cover no-repeat;
   background-blend-mode: multiply, normal;
+  animation: heroZoom 5s ease-out forwards;
+}
+
+@keyframes heroZoom {
+  from {
+    background-size: 100% auto;
+  }
+  to {
+    background-size: 110% auto;
+  }
 }
 
 .navbar {
@@ -385,7 +396,7 @@ body {
 
 .carousel-img.active {
   opacity: 1;
-  transform: scale(1);
+  transform: scale(1.1);
 }
 
 .church-carousel::after {
@@ -1386,5 +1397,84 @@ body {
   .about-image-slot {
     order: -1;
     aspect-ratio: 16 / 9;
+  }
+}
+
+.programs-section {
+  width: 100%;
+  background: var(--paper);
+  padding: 5.5rem var(--gutter);
+  display: flex;
+  justify-content: center;
+}
+
+.programs-grid {
+  max-width: 1100px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.program-card {
+  padding: 2.25rem 2rem;
+  border: 1px solid rgba(156, 122, 60, 0.28);
+  border-radius: 16px;
+  background: rgba(250, 247, 240, 0.6);
+  box-shadow: 0 18px 45px rgba(32, 29, 26, 0.06);
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.program-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(92, 20, 32, 0.36);
+  box-shadow: 0 22px 55px rgba(32, 29, 26, 0.1);
+}
+
+.program-time {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(156, 122, 60, 0.14);
+  color: var(--brass);
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.program-card h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.4rem;
+  color: var(--wine);
+  margin: 0 0 0.85rem;
+}
+
+.program-card p {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+
+@media (max-width: 900px) {
+  .programs-section {
+    padding: 3.5rem var(--gutter-sm);
+  }
+  .programs-grid {
+    grid-template-columns: 1fr;
+  }
+  .follow-strip {
+    padding: 3.5rem var(--gutter-sm);
+  }
+  .follow-strip-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
   }
 }
