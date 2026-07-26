@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import { Link } from "react-router-dom";
 
 
 const driveFolderId = "1ZS7OsZDtYgfiCStQ589N1_ljictrLVhF";
@@ -173,19 +174,19 @@ function Home() {
           <h2>Upcoming <br />Events</h2>
         </div>
         <div className="event-cards">
-          {upcomingEvents.length === 0 ? (
-            <p className="calendar-status">Loading upcoming events...</p>
-          ) : (
-            upcomingEvents.slice(0, 3).map((event) => (
-              <div className="event-card reveal" key={event.id}>
-                <span className="event-date">{formatEventDate(event)}</span>
-                <span className="event-time">{formatEventTime(event)}</span>
-                <span className="event-name">
-                  {event.summary || "Untitled Event"}
-                </span>
-              </div>
-            ))
-          )}
+          {upcomingEvents.slice(0, 3).map((event) => (
+          <Link
+            to="/resources/calendar"
+            className="event-card reveal"
+            key={event.id}
+          >
+            <span className="event-date">{formatEventDate(event)}</span>
+            <span className="event-time">{formatEventTime(event)}</span>
+            <span className="event-name">
+              {event.summary || "Untitled Event"}
+            </span>
+          </Link>
+        ))}
         </div>
       </section>
 
