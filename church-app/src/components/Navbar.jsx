@@ -1,18 +1,44 @@
 import { Link, useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-const ANNOUNCEMENT = "announcement";
+const ANNOUNCEMENTS = [
+  "announcement 1",
+  "announcement 2",
+];
+
+const FADE_INTERVAL = 3000;
 
 function Navbar() {
   const [showBanner, setShowBanner] = useState(true);
+  const [activeIndex, setActiveIndex] = useState(0);
   const location = useLocation();
   const isHome = location.pathname === "/";
+
+  useEffect(() => {
+    if (!showBanner || ANNOUNCEMENTS.length <= 1) return;
+    const interval = setInterval(() => {
+      setActiveIndex((i) => (i + 1) % ANNOUNCEMENTS.length);
+    }, FADE_INTERVAL);
+    return () => clearInterval(interval);
+  }, [showBanner]);
 
   return (
     <>
       {isHome && showBanner && (
         <div className="announcement-banner">
-          <span className="announcement-text">{ANNOUNCEMENT}</span>
+          <div className="announcement-track">
+            {ANNOUNCEMENTS.map((text, i) => (
+              <span
+                className={`announcement-text ${
+                  i === activeIndex ? "is-active" : ""
+                }`}
+                key={i}
+              >
+                {text}
+              </span>
+            ))}
+          </div>
+
           <button
             className="announcement-close"
             onClick={() => setShowBanner(false)}
@@ -32,7 +58,17 @@ function Navbar() {
 
         <ul>
           <li><Link to="/">Home</Link></li>
-          <li><Link to="/about">About</Link></li>
+
+          <li className="nav-item-dropdown">
+            <span tabIndex={0}>About</span>
+            <div className="dropdown-menu">
+              <Link to="/about#mission">Mission &amp; Vision</Link>
+              <Link to="/about#history">History</Link>
+              <Link to="/about#vicar">Vicar</Link>
+              <Link to="/about#leadership">Leadership</Link>
+            </div>
+          </li>
+
           <li><Link to="/programs">Programs</Link></li>
 
           <li className="nav-item-dropdown">
@@ -51,14 +87,9 @@ function Navbar() {
           </li>
         </ul>
 
-        <a
-          className="donate-btn"
-          href="https://www.paypal.com/US/fundraiser/charity/1916521"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Donate
-        </a>
+        <Link to="/donate" className="donate-btn">
+                  Donate
+        </Link>
       </nav>
     </>
   );

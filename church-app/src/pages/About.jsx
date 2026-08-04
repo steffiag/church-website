@@ -1,8 +1,11 @@
 import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 function About() {
+  const location = useLocation();
+
   useEffect(() => {
     const revealEls = document.querySelectorAll(".reveal");
     const observer = new IntersectionObserver(
@@ -20,6 +23,18 @@ function About() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+      if (location.hash) {
+        const id = location.hash.replace("#", "");
+        const el = document.getElementById(id);
+        if (el) {
+          setTimeout(() => {
+            el.scrollIntoView({ behavior: "smooth", block: "start" });
+          }, 100);
+        }
+      }
+    }, [location]);
+
   return (
     <div className="App">
       <header className="page-hero">
@@ -30,7 +45,7 @@ function About() {
         </div>
       </header>
 
-      <section className="about-section reveal">
+      <section id = "mission" className="about-section reveal">
         <div className="about-split">
           <div className="about-text">
             <h2>Our Mission</h2>
@@ -59,7 +74,7 @@ function About() {
         </div>
       </section>
 
-      <section className="about-section about-section-alt reveal">
+      <section id = "history" className="about-section about-section-alt reveal">
         <div className="about-split">
           <div className="about-image-slot">
             <img src="/church-ppl.jpg" />
@@ -95,7 +110,7 @@ function About() {
         </div>
       </section>
 
-      <section className="about-section reveal">
+      <section id = "vicar" className="about-section reveal">
         <div className="about-split">
           <div className="about-text">
             <h2>Current Leadership</h2>
@@ -114,6 +129,38 @@ function About() {
           <div className="about-image-slot">
             <img src="/vicar.jpg" />
           </div>
+        </div>
+      </section>
+
+      <section id = "leadership" className="about-section about-section-alt reveal">
+        <div className="leadership-table-wrap">
+          <h2>Parish Leadership</h2>
+          <table className="leadership-table">
+            <thead>
+              <tr>
+                <th>Position</th>
+                <th>Name</th>
+                <th>Contact</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-label="Position"></td>
+                <td data-label="Name"></td>
+                <td data-label="Contact"></td>
+              </tr>
+              <tr>
+                <td data-label="Position"></td>
+                <td data-label="Name"></td>
+                <td data-label="Contact"></td>
+              </tr>
+              <tr>
+                <td data-label="Position"></td>
+                <td data-label="Name"></td>
+                <td data-label="Contact"></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </section>
 

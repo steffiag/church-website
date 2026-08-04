@@ -4,11 +4,6 @@ import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 
 
-const driveFolderId = "1ZS7OsZDtYgfiCStQ589N1_ljictrLVhF";
-const googleDriveApiKey = import.meta.env.VITE_GOOGLE_API_KEY;
-const CALENDAR_ID =
-  "da92ccf9ba47b4363891a93b0a37f94154e60331f03099a07cd9c449f5c7e5c8@group.calendar.google.com";
-
 const fallbackCarouselImages = [
   "/church-exterior.png",
 ];
@@ -36,79 +31,23 @@ function Home() {
 }, [upcomingEvents, carouselPhotos]);
 
   useEffect(() => {
-  if (!googleDriveApiKey) return;
-
-  const loadEvents = async () => {
-    try {
-      const timeMin = new Date().toISOString();
-
-      const params = new URLSearchParams({
-        key: googleDriveApiKey,
-        timeMin,
-        singleEvents: "true",
-        orderBy: "startTime",
-        maxResults: "10",
-      });
-
-      const res = await fetch(
-        `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(
-          CALENDAR_ID
-        )}/events?${params}`
-      );
-
-      if (!res.ok) throw new Error("Failed to load events");
-
-      const data = await res.json();
-
-      setUpcomingEvents(data.items || []);
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
-  loadEvents();
-}, []);
-
-  useEffect(() => {
-    if (!googleDriveApiKey) return;
-
-    const loadDrivePhotos = async () => {
-      const query = [
-        `'${driveFolderId}' in parents`,
-        "mimeType contains 'image/'",
-        "trashed = false",
-      ].join(" and ");
-
-      const params = new URLSearchParams({
-        key: googleDriveApiKey,
-        q: query,
-        fields: "files(id,name,mimeType,modifiedTime)",
-        orderBy: "modifiedTime desc",
-        pageSize: "20",
-      });
-
+    const loadChurchData = async () => {
       try {
-        const response = await fetch(
-          `https://www.googleapis.com/drive/v3/files?${params}`
-        );
-        if (!response.ok) throw new Error("Could not load Drive photos");
+        const res = await fetch("/api/cloud");
+        if (!res.ok) throw new Error("Failed to load church data");
+        const data = await res.json();
 
-        const data = await response.json();
-        const photos = (data.files || []).map((file) => ({
-          src: `https://www.googleapis.com/drive/v3/files/${file.id}?alt=media&key=${googleDriveApiKey}`,
-          alt: file.name,
-        }));
-
-        if (photos.length > 0) {
-          setCarouselPhotos(photos);
+        if (data.photos?.length > 0) {
+          setCarouselPhotos(data.photos);
           setSlide(0);
         }
-      } catch (error) {
-        console.error(error);
+        setUpcomingEvents(data.events || []);
+      } catch (err) {
+        console.error(err);
       }
     };
 
-    loadDrivePhotos();
+    loadChurchData();
   }, []);
 
   useEffect(() => {

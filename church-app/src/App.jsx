@@ -5,6 +5,7 @@ import ContactInquiries from "./pages/ContactInquiries";
 import EventsCalendar from "./pages/EventsCalendar";
 import About from "./pages/About";
 import Programs from "./pages/Programs";
+import Donate from "./pages/Donate";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       <Route path="/resources/calendar" element={<EventsCalendar />} />
       <Route path="/about" element={<About />} />
       <Route path="/programs" element={<Programs />} />
+      <Route path="/donate" element={<Donate />} />
     </Routes>
   );
 }

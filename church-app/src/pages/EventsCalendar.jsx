@@ -2,10 +2,6 @@ import { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-const CALENDAR_ID =
-  "da92ccf9ba47b4363891a93b0a37f94154e60331f03099a07cd9c449f5c7e5c8@group.calendar.google.com";
-const googleCalendarApiKey = import.meta.env.VITE_GOOGLE_API_KEY;
-
 const WEEKDAY_LABELS = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 const MONTH_LABELS = [
   "January", "February", "March", "April", "May", "June",
@@ -73,7 +69,7 @@ function EventsCalendar() {
   const today = new Date();
   const [viewDate, setViewDate] = useState(new Date(today.getFullYear(), today.getMonth(), 1));
   const [eventsByDate, setEventsByDate] = useState({});
-  const [status, setStatus] = useState("loading"); // loading | ready | error
+  const [status, setStatus] = useState("loading");
   const [selectedDay, setSelectedDay] = useState(null);
 
   useEffect(() => {
@@ -100,33 +96,20 @@ function EventsCalendar() {
   useEffect(() => {
     setSelectedDay(null);
 
-    if (!googleCalendarApiKey) {
-      setStatus("error");
-      return;
-    }
-
     const rangeStart = weeks[0][0].date;
     const rangeEnd = weeks[weeks.length - 1][6].date;
     const timeMax = new Date(rangeEnd);
     timeMax.setDate(timeMax.getDate() + 1);
 
     const params = new URLSearchParams({
-      key: googleCalendarApiKey,
       timeMin: rangeStart.toISOString(),
       timeMax: timeMax.toISOString(),
-      singleEvents: "true",
-      orderBy: "startTime",
-      maxResults: "250",
     });
 
     const loadEvents = async () => {
       setStatus("loading");
       try {
-        const res = await fetch(
-          `https://www.googleapis.com/calendar/v3/calendars/${encodeURIComponent(
-            CALENDAR_ID
-          )}/events?${params}`
-        );
+        const res = await fetch(`/api/calendar?${params}`);
         if (!res.ok) throw new Error("Could not load calendar events");
 
         const data = await res.json();
@@ -148,6 +131,7 @@ function EventsCalendar() {
 
     loadEvents();
   }, [year, month]);
+
 
   const goToPrevMonth = () => setViewDate(new Date(year, month - 1, 1));
   const goToNextMonth = () => setViewDate(new Date(year, month + 1, 1));

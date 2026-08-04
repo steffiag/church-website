@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import emailjs from "@emailjs/browser";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
@@ -24,37 +23,31 @@ function ContactInquiries() {
     return () => observer.disconnect();
   }, []);
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const res = await fetch("/api/resend", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+
+      if (!res.ok) {
+        throw new Error("Failed to send message");
+      }
+
+      setSubmitted(true);
+      setForm({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error(error);
+      alert("Failed to send message.");
+    }
+  };
+
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
-
-  const handleSubmit = (e) => {
-  e.preventDefault();
-
-  emailjs
-    .send(
-      "service_qvhii7q",
-      "template_7rdv8lr",
-      {
-        name: form.name,
-        email: form.email,
-        message: form.message,
-      },
-      "jDTWJJw-wZfl7_x8t"
-    )
-    .then(() => {
-      setSubmitted(true);
-      setForm({
-        name: "",
-        email: "",
-        message: "",
-      });
-    })
-    .catch((error) => {
-      console.error(error);
-      alert("Failed to send message.");
-    });
-};
 
   return (
     <div className="App">
@@ -72,7 +65,7 @@ function ContactInquiries() {
           <div className="contact-form-wrap reveal">
             {submitted ? (
               <p className="form-success">
-                Thank you — your message has been received. We'll be in touch soon.
+                Thank you! We'll be in touch soon.
               </p>
             ) : (
               <form className="contact-form" onSubmit={handleSubmit}>
