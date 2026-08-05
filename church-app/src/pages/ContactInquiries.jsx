@@ -3,7 +3,12 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 function ContactInquiries() {
-  const [form, setForm] = useState({ name: "", email: "", message: "" });
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    message: "",
+    fax: "",
+  });
   const [submitted, setSubmitted] = useState(false);
 
   useEffect(() => {
@@ -34,11 +39,12 @@ function ContactInquiries() {
       });
 
       if (!res.ok) {
-        throw new Error("Failed to send message");
+        const error = await res.json().catch(() => ({}));
+        throw new Error(error.error || "Failed to send message");
       }
 
       setSubmitted(true);
-      setForm({ name: "", email: "", message: "" });
+      setForm({ name: "", email: "", message: "", fax: "" });
     } catch (error) {
       console.error(error);
       alert("Failed to send message.");
@@ -78,6 +84,21 @@ function ContactInquiries() {
                     value={form.name}
                     onChange={handleChange}
                     required
+                  />
+                </div>
+
+                <div className="form-honeypot" aria-hidden="true">
+                  <label htmlFor="fax">Fax</label>
+                  <input
+                    id="fax"
+                    name="fax"
+                    type="text"
+                    value={form.fax}
+                    onChange={handleChange}
+                    tabIndex={-1}
+                    autoComplete="off"
+                    data-1p-ignore="true"
+                    data-lpignore="true"
                   />
                 </div>
 

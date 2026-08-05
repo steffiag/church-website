@@ -956,6 +956,15 @@ body {
   gap: 0.4rem;
 }
 
+.form-honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
 .form-field label {
   font-family: var(--font-body);
   font-size: 0.72rem;

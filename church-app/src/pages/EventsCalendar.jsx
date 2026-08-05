@@ -110,7 +110,10 @@ function EventsCalendar() {
       setStatus("loading");
       try {
         const res = await fetch(`/api/calendar?${params}`);
-        if (!res.ok) throw new Error("Could not load calendar events");
+        if (!res.ok) {
+          const error = await res.json().catch(() => ({}));
+          throw new Error(error.error || "Could not load calendar events");
+        }
 
         const data = await res.json();
         const grouped = {};

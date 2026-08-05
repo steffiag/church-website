@@ -1,8 +1,17 @@
 export default async function handler(req, res) {
+  if (req.method !== "GET") {
+    res.setHeader("Allow", "GET");
+    return res.status(405).json({ error: "Method not allowed" });
+  }
+
   const apiKey = process.env.GOOGLE_API_KEY;
-  const driveFolderId = "1ZS7OsZDtYgfiCStQ589N1_ljictrLVhF";
+  const driveFolderId = "19DdkGE9jYp0ay-njtsH547K5_SB5PRvm";
   const calendarId =
-    "da92ccf9ba47b4363891a93b0a37f94154e60331f03099a07cd9c449f5c7e5c8@group.calendar.google.com";
+    "5b8ff01dbf9d0673c45b8f8334ca65b415483f943798e323048d1460d2b7f9e3@group.calendar.google.com";
+
+  if (!apiKey) {
+    return res.status(500).json({ error: "Church data is not configured" });
+  }
 
   try {
     const query = [
@@ -36,11 +45,19 @@ export default async function handler(req, res) {
       ),
     ]);
 
+    if (!driveRes.ok) {
+      throw new Error(`Google Drive request failed with status ${driveRes.status}`);
+    }
+
+    if (!eventsRes.ok) {
+      throw new Error(`Google Calendar request failed with status ${eventsRes.status}`);
+    }
+
     const driveData = await driveRes.json();
     const eventsData = await eventsRes.json();
 
     const photos = (driveData.files || []).map((file) => ({
-      src: `https://www.googleapis.com/drive/v3/files/${file.id}?alt=media&key=${apiKey}`,
+      src: `https://drive.google.com/thumbnail?id=${encodeURIComponent(file.id)}&sz=w1600`,
       alt: file.name,
     }));
 

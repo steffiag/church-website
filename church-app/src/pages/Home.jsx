@@ -34,7 +34,10 @@ function Home() {
     const loadChurchData = async () => {
       try {
         const res = await fetch("/api/cloud");
-        if (!res.ok) throw new Error("Failed to load church data");
+        if (!res.ok) {
+          const error = await res.json().catch(() => ({}));
+          throw new Error(error.error || "Failed to load church data");
+        }
         const data = await res.json();
 
         if (data.photos?.length > 0) {
