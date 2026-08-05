@@ -30,6 +30,21 @@ function Navbar() {
     setMenuOpen(!menuOpen);
   };
 
+  const closeNavigation = () => {
+    if (document.activeElement instanceof HTMLElement) {
+      document.activeElement.blur();
+    }
+    setMenuOpen(false);
+    setOpenDropdown(null);
+  };
+
+  const clearDropdownFocus = () => {
+    if (document.activeElement?.classList.contains("nav-dropdown-toggle")) {
+      document.activeElement.blur();
+    }
+    setOpenDropdown(null);
+  };
+
   useEffect(() => {
     if (!showBanner || ANNOUNCEMENTS.length <= 1) return;
     const interval = setInterval(() => {
@@ -80,13 +95,15 @@ function Navbar() {
           aria-controls="primary-navigation"
           aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
         >
-          {menuOpen ? "Close" : "Menu"}
+          <span />
+          <span />
+          <span />
         </button>
 
         <ul id="primary-navigation">
-          <li><Link to="/">Home</Link></li>
+          <li onMouseEnter={clearDropdownFocus}><Link to="/">Home</Link></li>
 
-          <li className="nav-item-dropdown">
+          <li className="nav-item-dropdown" onMouseEnter={clearDropdownFocus}>
             <button
               type="button"
               className="nav-dropdown-toggle"
@@ -95,7 +112,10 @@ function Navbar() {
             >
               About
             </button>
-            <div className={`dropdown-menu ${openDropdown === "about" ? "is-open" : ""}`}>
+            <div
+              className={`dropdown-menu ${openDropdown === "about" ? "is-open" : ""}`}
+              onClick={closeNavigation}
+            >
               <Link to="/about#mission">Mission &amp; Vision</Link>
               <Link to="/about#history">History</Link>
               <Link to="/about#vicar">Vicar</Link>
@@ -103,9 +123,9 @@ function Navbar() {
             </div>
           </li>
 
-          <li><Link to="/programs">Programs</Link></li>
+          <li onMouseEnter={clearDropdownFocus}><Link to="/programs">Programs</Link></li>
 
-          <li className="nav-item-dropdown">
+          <li className="nav-item-dropdown" onMouseEnter={clearDropdownFocus}>
             <button
               type="button"
               className="nav-dropdown-toggle"
@@ -114,12 +134,15 @@ function Navbar() {
             >
               Resources
             </button>
-            <div className={`dropdown-menu ${openDropdown === "resources" ? "is-open" : ""}`}>
+            <div
+              className={`dropdown-menu ${openDropdown === "resources" ? "is-open" : ""}`}
+              onClick={closeNavigation}
+            >
               <Link to="/resources/calendar">Calendar</Link>
             </div>
           </li>
 
-          <li className="nav-item-dropdown">
+          <li className="nav-item-dropdown" onMouseEnter={clearDropdownFocus}>
             <button
               type="button"
               className="nav-dropdown-toggle"
@@ -128,13 +151,16 @@ function Navbar() {
             >
               Contact
             </button>
-            <div className={`dropdown-menu ${openDropdown === "contact" ? "is-open" : ""}`}>
+            <div
+              className={`dropdown-menu ${openDropdown === "contact" ? "is-open" : ""}`}
+              onClick={closeNavigation}
+            >
               <Link to="/contact/location">Location</Link>
               <Link to="/contact/inquiries">Inquiries</Link>
             </div>
           </li>
 
-          <li className="mobile-donate"><Link to="/donate">Donate</Link></li>
+          <li className="mobile-donate" onMouseEnter={clearDropdownFocus}><Link to="/donate">Donate</Link></li>
         </ul>
 
         <Link to="/donate" className="donate-btn">
