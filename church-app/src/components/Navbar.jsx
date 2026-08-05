@@ -69,9 +69,7 @@ function Navbar() {
           aria-controls="primary-navigation"
           aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
         >
-          <span />
-          <span />
-          <span />
+          {menuOpen ? "Close" : "Menu"}
         </button>
 
         <ul id="primary-navigation">
