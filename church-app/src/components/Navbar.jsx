@@ -11,8 +11,13 @@ const FADE_INTERVAL = 3000;
 function Navbar() {
   const [showBanner, setShowBanner] = useState(true);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [menuOpen, setMenuOpen] = useState(false);
   const location = useLocation();
   const isHome = location.pathname === "/";
+
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [location.pathname]);
 
   useEffect(() => {
     if (!showBanner || ANNOUNCEMENTS.length <= 1) return;
@@ -49,14 +54,27 @@ function Navbar() {
         </div>
       )}
 
-      <nav className="navbar">
+      <nav className={`navbar ${menuOpen ? "menu-open" : ""}`} aria-label="Main navigation">
         <div className="logo">
           <Link to="/">
             <img src="/church-logo.png" alt="church" className="logo-img" />
           </Link>
         </div>
 
-        <ul>
+        <button
+          type="button"
+          className="menu-toggle"
+          onClick={() => setMenuOpen((open) => !open)}
+          aria-expanded={menuOpen}
+          aria-controls="primary-navigation"
+          aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+
+        <ul id="primary-navigation">
           <li><Link to="/">Home</Link></li>
 
           <li className="nav-item-dropdown">
@@ -85,10 +103,12 @@ function Navbar() {
               <Link to="/contact/inquiries">Inquiries</Link>
             </div>
           </li>
+
+          <li className="mobile-donate"><Link to="/donate">Donate</Link></li>
         </ul>
 
         <Link to="/donate" className="donate-btn">
-                  Donate
+          Donate
         </Link>
       </nav>
     </>

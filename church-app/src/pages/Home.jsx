@@ -54,7 +54,7 @@ function Home() {
     if (carouselPhotos.length <= 1) return;
     const interval = setInterval(() => {
       setSlide((s) => (s + 1) % carouselPhotos.length);
-    }, 5000);
+    }, 3000);
     return () => clearInterval(interval);
   }, [carouselPhotos.length]);
 

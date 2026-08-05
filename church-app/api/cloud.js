@@ -1,8 +1,8 @@
 export default async function handler(req, res) {
   const apiKey = process.env.GOOGLE_API_KEY;
-  const driveFolderId = "19DdkGE9jYp0ay-njtsH547K5_SB5PRvm";
+  const driveFolderId = "1ZS7OsZDtYgfiCStQ589N1_ljictrLVhF";
   const calendarId =
-    "5b8ff01dbf9d0673c45b8f8334ca65b415483f943798e323048d1460d2b7f9e3@group.calendar.google.com";
+    "da92ccf9ba47b4363891a93b0a37f94154e60331f03099a07cd9c449f5c7e5c8@group.calendar.google.com";
 
   try {
     const query = [
