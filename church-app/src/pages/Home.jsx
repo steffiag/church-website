@@ -85,7 +85,7 @@ function Home() {
         <div className="hero-text">
           <span className="eyebrow">Bergenfield, NJ</span>
           <h1>
-            St. Mary's Syrian
+            St. Mary's Syriac
             <br />
             Orthodox Church
           </h1>
