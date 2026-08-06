@@ -1,25 +1,32 @@
 import { Link, useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
-
-const ANNOUNCEMENTS = [
-  "announcement 1",
-  "announcement 2",
-];
+import { useEffect, useState, useRef } from "react";
 
 const FADE_INTERVAL = 3000;
 
 function Navbar() {
+  const [announcements, setAnnouncements] = useState([]);
   const [showBanner, setShowBanner] = useState(true);
   const [activeIndex, setActiveIndex] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
   const location = useLocation();
   const isHome = location.pathname === "/";
+  const hasFetched = useRef(false);
 
   useEffect(() => {
     setMenuOpen(false);
     setOpenDropdown(null);
   }, [location.pathname]);
+
+  useEffect(() => {
+    if (hasFetched.current) return;
+    hasFetched.current = true;
+
+    fetch("/api/announcements")
+      .then((res) => res.json())
+      .then((data) => setAnnouncements(data.announcements || []))
+      .catch((err) => console.error("Failed to load announcements:", err));
+  }, []);
 
   const toggleDropdown = (name) => {
     setOpenDropdown((current) => (current === name ? null : name));
@@ -46,19 +53,19 @@ function Navbar() {
   };
 
   useEffect(() => {
-    if (!showBanner || ANNOUNCEMENTS.length <= 1) return;
+    if (!showBanner || announcements.length <= 1) return;
     const interval = setInterval(() => {
-      setActiveIndex((i) => (i + 1) % ANNOUNCEMENTS.length);
+      setActiveIndex((i) => (i + 1) % announcements.length);
     }, FADE_INTERVAL);
     return () => clearInterval(interval);
-  }, [showBanner]);
+  }, [showBanner, announcements]);
 
   return (
     <>
-      {isHome && showBanner && (
+      {isHome && showBanner && announcements.length > 0 && (
         <div className="announcement-banner">
           <div className="announcement-track">
-            {ANNOUNCEMENTS.map((text, i) => (
+            {announcements.map((text, i) => (
               <span
                 className={`announcement-text ${
                   i === activeIndex ? "is-active" : ""
