@@ -49,7 +49,7 @@ function Donate() {
             <h2>Zelle</h2>
             <div className="donate-card-detail">
               stmarysbergen@gmail.com
-              <img src="/church-logo.png" alt="church" className="logo-img" />
+              <img src="/donate.png" alt="QR Code" className="qr-img" />
             </div>
           </div>
         </div>

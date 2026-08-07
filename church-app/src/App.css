@@ -2092,3 +2092,10 @@ body {
     gap: 0.45rem;
   }
 }
+
+
+.logo-img {
+  height: 55px;
+  width: auto;
+  display: block;
+}
