@@ -152,6 +152,11 @@ body {
   transition: opacity 0.2s ease, color 0.2s ease, border-color 0.2s ease;
 }
 
+.navbar ul li {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
 .nav-dropdown-toggle {
   padding: 0 0 0.4rem;
   border: 0;
@@ -1516,7 +1521,9 @@ body {
   }
   .about-image-slot {
     order: -1;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 4 / 5;
+    max-width: 420px;
+    margin: 0 auto;
   }
 }
 
