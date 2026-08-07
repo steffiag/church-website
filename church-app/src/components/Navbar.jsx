@@ -130,7 +130,7 @@ function Navbar() {
             </div>
           </li>
 
-          <li onMouseEnter={clearDropdownFocus}><Link to="/programs">Programs</Link></li>
+          <li className="nav-item-dropdown" onMouseEnter={clearDropdownFocus}><Link to="/programs">Programs</Link></li>
 
           <li className="nav-item-dropdown" onMouseEnter={clearDropdownFocus}>
             <button
