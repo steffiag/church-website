@@ -1388,6 +1388,7 @@ body {
   object-fit: cover;
   border-radius: 16px;
   display: block;
+  object-position: center 10%;
 }
 
 .leadership-table-wrap {
