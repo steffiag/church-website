@@ -1861,11 +1861,11 @@ body {
     display: block;
   }
 
-  .navbar ul li,
-  .navbar ul li span,
-  .navbar ul .nav-dropdown-toggle,
   .navbar ul li a,
-  .navbar ul li a:visited {
+  .navbar ul li a:visited,
+  .navbar ul li a:active,
+  .navbar ul li a:link,
+  .navbar ul .nav-dropdown-toggle {
     color: var(--ink);
     opacity: 1;
   }
