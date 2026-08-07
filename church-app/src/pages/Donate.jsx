@@ -34,6 +34,7 @@ function Donate() {
           <div className="donate-card">
             <span className="donate-card-eyebrow">Give Online</span>
             <h2>PayPal</h2>
+            <img src="/paypal.png" alt="QR Code" className="qr-img" />
             <a
               href="https://www.paypal.com/US/fundraiser/charity/1916521"
               target="_blank"
@@ -47,9 +48,9 @@ function Donate() {
           <div className="donate-card">
             <span className="donate-card-eyebrow">Bank Transfer</span>
             <h2>Zelle</h2>
+            <img src="/donate.png" alt="QR Code" className="qr-img" />
             <div className="donate-card-detail">
               stmarysbergen@gmail.com
-              <img src="/donate.png" alt="QR Code" className="qr-img" />
             </div>
           </div>
         </div>

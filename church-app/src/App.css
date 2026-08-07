@@ -1735,6 +1735,8 @@ body {
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
+  justify-content: space-between; 
+  text-align: center;
 }
 
 .donate-card-eyebrow {
@@ -2094,9 +2096,10 @@ body {
   }
 }
 
-
-.logo-img {
-  height: 55px;
-  width: auto;
-  display: block;
+.qr-img {
+  width: 12em;
+  height: 12em;
+  object-fit: contain;
+  padding: 0.5rem;
+  align-self: center;
 }

@@ -118,11 +118,13 @@ function About() {
               <div className="leadership-info">
                 <h3>Rev. Fr. Joy John</h3>
                 <span className="leadership-title">Vicar</span>
-                <p>
+                <div className="about-body">
+                  <p>
                   Rev. Fr. Joy John has served as Vicar of St. Mary's Syrian
                   Orthodox Church, continuing the parish's tradition of faith
                   and community leadership.
                 </p>
+                </div>
               </div>
             </div>
           </div>
