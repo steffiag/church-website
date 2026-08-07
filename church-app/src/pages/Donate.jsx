@@ -48,7 +48,8 @@ function Donate() {
             <span className="donate-card-eyebrow">Bank Transfer</span>
             <h2>Zelle</h2>
             <div className="donate-card-detail">
-              Email
+              stmarysbergen@gmail.com
+              <img src="/donate.png" alt="QR Code" />
             </div>
           </div>
         </div>
