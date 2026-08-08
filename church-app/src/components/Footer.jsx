@@ -5,10 +5,10 @@ function Footer() {
         <h2>Contact Us</h2>
         <div className="footer-details">
           <p>173 North Washington Avenue</p>
-          <p>Bergenfield, NJ 07621</p>
-          <p>United States</p>
-          <p><a href="mailto:stmarysbergen@gmail.com" className="email-link">stmarysbergen@gmail.com</a></p>
           <p><a href="/about/#leadership" className="footer-call">Call Us</a></p>
+          <p>Bergenfield, NJ 07621</p>
+          <p><a href="mailto:stmarysbergen@gmail.com" className="email-link">stmarysbergen@gmail.com</a></p>
+          <p>United States</p>
         </div>
       </div>
 

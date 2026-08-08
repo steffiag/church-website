@@ -1,8 +1,11 @@
 import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
 function ContactLocation() {
+  const location = useLocation();
+
   useEffect(() => {
     const revealEls = document.querySelectorAll(".reveal");
     const observer = new IntersectionObserver(
@@ -20,6 +23,18 @@ function ContactLocation() {
     return () => observer.disconnect();
   }, []);
 
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.replace("#", "");
+      const el = document.getElementById(id);
+      if (el) {
+        setTimeout(() => {
+          el.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 100);
+      }
+    }
+  }, [location]);
+
   return (
     <div className="App">
       <header className="page-hero">
@@ -30,24 +45,15 @@ function ContactLocation() {
         </div>
       </header>
 
-      <section className="contact-section">
-        <div className="contact-grid">
-          <div className="info-card reveal">
-            <span className="eyebrow">Address</span>
+      <section id="location" className="location-section reveal">
+        <div className="location-section-inner">
+          <h2>Address</h2>
+          <div className="about-body">
             <p>173 North Washington Ave</p>
             <p>Bergenfield, NJ 07621</p>
           </div>
-
-
-          <div className="info-card reveal">
-            <span className="eyebrow">Parking</span>
-            <p>Street parking available</p>
-            <p>on North Washington Ave</p>
-            <p> and the back lot of Staples</p>
-          </div>
         </div>
-
-        <div className="contact-map-card reveal">
+        <div className="location-full-image">
           <iframe
             title="Church location map"
             src="https://www.google.com/maps?q=173+N+Washington+Ave,+Bergenfield,+NJ+07621&output=embed"
@@ -57,6 +63,15 @@ function ContactLocation() {
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
           />
+        </div>
+      </section>
+
+      <section id="parking" className="location-section location-section-alt reveal">
+        <div className="location-section-inner">
+          <h2>Parking</h2>
+        </div>
+        <div className="location-full-image">
+          <img src="/parking.jpg" alt="Parking map" />
         </div>
       </section>
 

@@ -11,7 +11,7 @@ const programs = [
   {
     title: "Youth Association",
     description:
-      "Our youth group is a increasingly prominent organization within our church that includes highschoolers and college students. We meet regularly to help the youth of our church strengthen their relationship with God and become more active within the church. We organize monthly meetings that include spiritual discussions, upcoming events, charity work, and fundraisers. Through these meetings, the youth are able to learn how to live a righteous life while also becoming more close with like-minded individuals. ", 
+      "Our youth group is an increasingly prominent organization within our church that includes highschoolers and college students. We meet regularly to help the youth of our church strengthen their relationship with God and become more active within the church. We organize monthly meetings that include spiritual discussions, upcoming events, charity work, and fundraisers. Through these meetings, the youth are able to learn how to live a righteous life while also becoming more close with like-minded individuals. ", 
   },
   {
     title: "Women's League",

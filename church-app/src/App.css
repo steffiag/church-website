@@ -2143,3 +2143,55 @@ body {
   text-decoration-color: var(--brass);
 }
 
+.location-section {
+  width: 100%;
+  background: var(--paper);
+  padding: 5.5rem var(--gutter);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.location-section-alt {
+  background: var(--paper-warm);
+}
+
+.location-section-inner {
+  max-width: 1250px;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 2.5rem;
+}
+
+.location-section-inner h2 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.9rem, 3.2vw, 2.6rem);
+  color: var(--wine);
+  margin: 0 0 1.25rem;
+}
+
+.location-full-image {
+  max-width: 1100px;
+  width: 100%;
+  border: 1px solid rgba(156, 122, 60, 0.26);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 18px 45px rgba(32, 29, 26, 0.08);
+}
+
+.location-full-image img {
+  width: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 900px) {
+  .location-section {
+    padding: 3.5rem var(--gutter-sm);
+  }
+  .location-full-image img,
+  .location-full-image iframe {
+    height: 320px;
+  }
+}

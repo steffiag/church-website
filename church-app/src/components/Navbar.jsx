@@ -162,7 +162,8 @@ function Navbar() {
               className={`dropdown-menu ${openDropdown === "contact" ? "is-open" : ""}`}
               onClick={closeNavigation}
             >
-              <Link to="/contact/location">Location</Link>
+              <Link to="/contact/location#location">Location</Link>
+              <Link to="/contact/location#parking">Parking</Link>
               <Link to="/contact/inquiries">Inquiries</Link>
             </div>
           </li>
