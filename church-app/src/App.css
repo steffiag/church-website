@@ -214,7 +214,7 @@ body {
   background: var(--paper-warm);
 }
 
-.donate-btn {
+.donate-btn, .contact-btn {
   flex-shrink: 0;
   background: var(--brass);
   color: var(--ink);
@@ -236,6 +236,10 @@ body {
 }
 
 .donate-btn:hover {
+  background: var(--brass-light);
+  transform: translateY(-2px);
+}
+.contact-btn:hover {
   background: var(--brass-light);
   transform: translateY(-2px);
 }
@@ -2110,3 +2114,32 @@ body {
   padding: 0.5rem;
   align-self: center;
 }
+
+.committee-list {
+  max-width: 900px;
+  width: 100%;
+  margin: 3rem auto 0;
+}
+
+.committee-list h3 {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1.4rem;
+  color: var(--wine);
+  margin: 0 0 1rem;
+  text-align: left;
+}
+
+.email-link, .footer-call {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--brass);
+  text-underline-offset: 3px;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.email-link:hover, .footer-call:hover {
+  color: var(--brass);
+  text-decoration-color: var(--brass);
+}
+

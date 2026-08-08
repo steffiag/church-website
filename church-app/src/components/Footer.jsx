@@ -7,7 +7,8 @@ function Footer() {
           <p>173 North Washington Avenue</p>
           <p>Bergenfield, NJ 07621</p>
           <p>United States</p>
-          <p>(201) 374-2210</p>
+          <p><a href="mailto:stmarysbergen@gmail.com" className="email-link">stmarysbergen@gmail.com</a></p>
+          <p><a href="/about/#leadership" className="footer-call">Call Us</a></p>
         </div>
       </div>
 

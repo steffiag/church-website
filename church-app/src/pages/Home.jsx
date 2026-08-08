@@ -107,7 +107,10 @@ function Home() {
         </div>
         <div className="info-card reveal">
           <span className="eyebrow">Contact</span>
-          <p>(201) 374-2210</p>
+          <p><a href="mailto:stmarysbergen@gmail.com" className="email-link">stmarysbergen@gmail.com</a></p>
+          <Link to="/about/#leadership" className="contact-btn">
+          Call Us
+        </Link>
         </div>
       </section>
 

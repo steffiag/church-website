@@ -134,9 +134,10 @@ function About() {
         </div>
       </section>
 
-      <section id = "leadership" className="about-section about-section-alt reveal">
+     
+          <section id="leadership" className="about-section about-section-alt reveal">
         <div className="leadership-table-wrap">
-          <h2>Parish Leadership</h2>
+          <h2>Office Leadership</h2>
           <table className="leadership-table">
             <thead>
               <tr>
@@ -147,24 +148,76 @@ function About() {
             </thead>
             <tbody>
               <tr>
-                <td data-label="Position"></td>
-                <td data-label="Name"></td>
-                <td data-label="Contact"></td>
+                <td data-label="Position">Vicar/President</td>
+                <td data-label="Name">Rev. Fr. Joy John</td>
+                <td data-label="Contact">+1 (609)-306-0180</td>
               </tr>
               <tr>
-                <td data-label="Position"></td>
-                <td data-label="Name"></td>
-                <td data-label="Contact"></td>
+                <td data-label="Position">Vice President</td>
+                <td data-label="Name">George M George</td>
+                <td data-label="Contact">+1 (201)-803-9740</td>
               </tr>
               <tr>
-                <td data-label="Position"></td>
-                <td data-label="Name"></td>
-                <td data-label="Contact"></td>
+                <td data-label="Position">Secretary</td>
+                <td data-label="Name">Issac Kurian</td>
+                <td data-label="Contact">+1 (551)-200-1225</td>
+              </tr>
+              <tr>
+                <td data-label="Position">Treasurer</td>
+                <td data-label="Name">Eldhose Rajan</td>
+                <td data-label="Contact">+1 (812)-369-2028</td>
               </tr>
             </tbody>
           </table>
-        </div>
-      </section>
+          <div className="committee-list">
+            <h3>Committee</h3>
+            <table className="leadership-table committee-table">
+              <thead>
+                <tr>
+                  <th>Position</th>
+                  <th>Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-label="Position">Joint Secretary</td>
+                  <td data-label="Name">Dipu Mathew</td>
+                </tr>
+                <tr>
+                  <td data-label="Position">Joint Treasurer</td>
+                  <td data-label="Name">Dhayan Kurian</td>
+                </tr>
+                <tr>
+                  <td data-label="Position">Auditor</td>
+                  <td data-label="Name">Rajan Palamattam</td>
+                </tr>
+                <tr>
+                  <td data-label="Position">Committee Members</td>
+                  <td data-label="Name">Sony Abraham, Ammini Mathew, Cherian Mathew, Joy Varghese, Thomas Issac</td>
+                </tr>
+                <tr>
+                  <td data-label="Position">Picnic Coordinator</td>
+                  <td data-label="Name">Eldho Hobby</td>
+                </tr>
+                <tr>
+                  <td data-label="Position">Caroling Coordinator</td>
+                  <td data-label="Name">Sajan Samuel</td>
+                </tr>
+                <tr>
+                  <td data-label="Position">Family Night Coordinators</td>
+                  <td data-label="Name">Sumi Poulose, Reeja Chackochan, Roshni Paul</td>
+                </tr>
+                <tr>
+                  <td data-label="Position">Prayer Meeting</td>
+                  <td data-label="Name">Regi Markose</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          
+          </div>
+        </section>
 
       <Footer />
     </div>
