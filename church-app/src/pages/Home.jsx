@@ -66,14 +66,6 @@ function Home() {
   }, [carouselPhotos.length]);
 
   useEffect(() => {
-    if (fliers.length <= 1) return;
-    const interval = setInterval(() => {
-      setFlierSlide((s) => (s + 1) % fliers.length);
-    }, 4000);
-    return () => clearInterval(interval);
-  }, [fliers.length]);
-
-  useEffect(() => {
     if (fliers.length <= 1 || fliersPaused) return;
     const interval = setInterval(() => {
       setFlierSlide((s) => (s + 1) % fliers.length);
@@ -136,7 +128,6 @@ function Home() {
 
       {fliers.length > 0 && (
         <section className="fliers-section reveal">
-          <h2 className="fliers-heading">Announcements</h2>
           <div
             className="fliers-carousel"
             onClick={() => setFliersPaused((p) => !p)}
