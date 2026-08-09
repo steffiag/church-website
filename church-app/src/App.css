@@ -137,9 +137,8 @@ body {
   list-style: none;
   margin: 0 0 0 auto;
   padding: 0;
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   letter-spacing: 0.12em;
-  text-transform: uppercase;
   color: var(--paper);
 }
 
@@ -867,9 +866,8 @@ body {
   display: block;
   padding: 0.55rem 0.9rem;
   font-family: var(--font-body);
-  font-size: 0.7rem;
+  font-size: 0.8rem;
   letter-spacing: 0.1em;
-  text-transform: uppercase;
   color: var(--ink);
   text-decoration: none;
   border-radius: 6px;
@@ -1899,7 +1897,7 @@ body {
     text-align: center;
     background: var(--brass);
     color: var(--ink);
-    font-size: 0.75rem;
+    font-size: 0.85rem;
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
