@@ -50,7 +50,7 @@ function Donate() {
             <h2>Zelle</h2>
             <img src="/donate.png" alt="QR Code" className="qr-img" />
             <div className="donate-card-detail">
-              stmarysbergen@gmail.com
+              stmarysbergen
             </div>
           </div>
         </div>
