@@ -13,6 +13,7 @@ function Home() {
   const [carouselPhotos, setCarouselPhotos] = useState(fallbackCarouselImages);
   const [upcomingEvents, setUpcomingEvents] = useState([]);
   const [fliers, setFliers] = useState([]);
+  const [flierSlide, setFlierSlide] = useState(0);
 
   useEffect(() => {
     const revealEls = document.querySelectorAll(".reveal");
