@@ -371,7 +371,7 @@ body {
 
 .events {
   width: 100%;
-  background: var(--paper-warm);
+  background: var(--paper);
   padding: 6rem var(--gutter);
   text-align: left;
   display: grid;

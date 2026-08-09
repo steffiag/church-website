@@ -127,7 +127,6 @@ function Home() {
 
       {fliers.length > 0 && (
         <section className="fliers-section reveal">
-          <h2 className="fliers-heading">Announcements</h2>
           <div className="fliers-carousel">
             <div className="carousel-track">
               {fliers.map((flier, i) => (
