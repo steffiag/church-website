@@ -4,11 +4,15 @@ function Footer() {
       <div className="footer-col reveal">
         <h2>Contact Us</h2>
         <div className="footer-details">
-          <p>173 North Washington Avenue</p>
-          <p><a href="/about/#leadership" className="footer-call">Call Us</a></p>
-          <p>Bergenfield, NJ 07621</p>
-          <p><a href="mailto:stmarysbergen@gmail.com" className="email-link">stmarysbergen@gmail.com</a></p>
-          <p>United States</p>
+          <div className="footer-address">
+            <p>173 North Washington Avenue</p>
+            <p>Bergenfield, NJ 07621</p>
+            <p>United States</p>
+          </div>
+          <div className="footer-contact">
+            <p><a href="/about/#leadership" className="footer-call">Call Us</a></p>
+            <p><a href="mailto:stmarysbergen@gmail.com" className="email-link">stmarysbergen@gmail.com</a></p>
+          </div>
         </div>
       </div>
 

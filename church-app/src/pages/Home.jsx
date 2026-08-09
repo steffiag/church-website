@@ -3,14 +3,9 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 
-
-const fallbackCarouselImages = [
-  "/church-exterior.png",
-];
-
 function Home() {
   const [slide, setSlide] = useState(0);
-  const [carouselPhotos, setCarouselPhotos] = useState(fallbackCarouselImages);
+  const [carouselPhotos, setCarouselPhotos] = useState([]);
   const [upcomingEvents, setUpcomingEvents] = useState([]);
   const [fliers, setFliers] = useState([]);
   const [flierSlide, setFlierSlide] = useState(0);
@@ -192,7 +187,8 @@ function Home() {
         </div>
       </section>
 
-      <section className="church-carousel reveal">
+      {carouselPhotos.length > 0 && (
+        <section className="church-carousel reveal">
         <div className="carousel-track">
           {carouselPhotos.map((photo, i) => (
             <img
@@ -215,6 +211,7 @@ function Home() {
           ))}
         </div>
       </section>
+      )}
 
       <Footer />
     </div>

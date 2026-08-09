@@ -191,10 +191,18 @@ function About() {
                   <td data-label="Position">Auditor</td>
                   <td data-label="Name">Rajan Palamattam</td>
                 </tr>
-                <tr>
-                  <td data-label="Position">Committee Members</td>
-                  <td data-label="Name">Sony Abraham, Ammini Mathew, Cherian Mathew, Joy Varghese, Thomas Issac</td>
-                </tr>
+               <tr>
+                <td data-label="Position">Committee Members</td>
+                <td data-label="Name">
+                  <span className="member-list">
+                    <span className="member-name">Sony Abraham</span>
+                    <span className="member-name">Ammini Mathew</span>
+                    <span className="member-name">Cherian Mathew</span>
+                    <span className="member-name">Joy Varghese</span>
+                    <span className="member-name">Thomas Issac</span>
+                  </span>
+                </td>
+              </tr>
                 <tr>
                   <td data-label="Position">Picnic Coordinator</td>
                   <td data-label="Name">Eldho Hobby</td>
@@ -204,8 +212,14 @@ function About() {
                   <td data-label="Name">Sajan Samuel</td>
                 </tr>
                 <tr>
-                  <td data-label="Position">Family Night Coordinators</td>
-                  <td data-label="Name">Sumi Poulose, Reeja Chackochan, Roshni Paul</td>
+                <td data-label="Position">Family Night Coordinators</td>
+                  <td data-label="Name">
+                    <span className="member-list">
+                      <span className="member-name">Sumi Poulose</span>
+                      <span className="member-name">Reeja Chackochan</span>
+                      <span className="member-name">Roshni Paul</span>
+                    </span>
+                  </td>
                 </tr>
                 <tr>
                   <td data-label="Position">Prayer Meeting</td>
