@@ -69,7 +69,7 @@ function About() {
             </div>
           </div>
           <div className="about-image-slot">
-            <img src="/Christ.png" />
+            <img id = "st-mary" src="/stmary-img.png" />
           </div>
         </div>
       </section>
@@ -129,7 +129,7 @@ function About() {
             </div>
           </div>
           <div className="about-image-slot">
-            <img src="/vicar.jpg" />
+            <img src="/achen.jpg" />
           </div>
         </div>
       </section>

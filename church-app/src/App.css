@@ -2274,3 +2274,7 @@ body {
     content: "";
   }
 }
+
+#st-mary{
+  object-position: center 25%;
+}
