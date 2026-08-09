@@ -2240,3 +2240,13 @@ body {
     min-height: 320px;
   }
 }
+
+.fliers-carousel .carousel-img {
+  object-fit: contain;
+  background: var(--ink);
+  transform: none;
+}
+
+.fliers-carousel .carousel-img.active {
+  transform: none;
+}
