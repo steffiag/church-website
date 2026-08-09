@@ -63,6 +63,14 @@ function Home() {
     return () => clearInterval(interval);
   }, [carouselPhotos.length]);
 
+  useEffect(() => {
+    if (fliers.length <= 1) return;
+    const interval = setInterval(() => {
+      setFlierSlide((s) => (s + 1) % fliers.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [fliers.length]);
+
   function formatEventDate(event) {
     const date = new Date(event.start?.dateTime || event.start?.date);
     return date.toLocaleDateString("en-US", {
@@ -116,20 +124,37 @@ function Home() {
         </div>
       </section>
 
-      {/* {fliers.length > 0 && (
-        <section className="fliers-section">
-          <div className="fliers-heading reveal">
-            <h2>Announcements</h2>
-          </div>
-          <div className="fliers-grid">
-            {fliers.map((flier) => (
-              <div className="flier-card reveal" key={flier.src}>
-                <img src={flier.src} alt={flier.alt || "Church announcement flier"} />
+      {fliers.length > 0 && (
+        <section className="fliers-section reveal">
+          <h2 className="fliers-heading">Announcements</h2>
+          <div className="fliers-carousel">
+            <div className="carousel-track">
+              {fliers.map((flier, i) => (
+                <img
+                  key={flier.src}
+                  src={flier.src}
+                  alt={flier.alt || "Church announcement flier"}
+                  className={`carousel-img ${
+                    fliers.length === 1 || i === flierSlide ? "active" : ""
+                  }`}
+                />
+              ))}
+            </div>
+            {fliers.length > 1 && (
+              <div className="carousel-dots">
+                {fliers.map((_, i) => (
+                  <button
+                    key={i}
+                    className={`dot ${i === flierSlide ? "active" : ""}`}
+                    onClick={() => setFlierSlide(i)}
+                    aria-label={`Go to flier ${i + 1}`}
+                  />
+                ))}
               </div>
-            ))}
+            )}
           </div>
         </section>
-      )} */}
+      )}
 
       <section className="events">
         <div className="events-heading reveal">
