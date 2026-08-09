@@ -12,23 +12,24 @@ function Home() {
   const [slide, setSlide] = useState(0);
   const [carouselPhotos, setCarouselPhotos] = useState(fallbackCarouselImages);
   const [upcomingEvents, setUpcomingEvents] = useState([]);
+  const [fliers, setFliers] = useState([]);
 
   useEffect(() => {
-  const revealEls = document.querySelectorAll(".reveal");
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          observer.unobserve(entry.target);
-        }
-      });
-    },
-    { threshold: 0.15 }
-  );
-  revealEls.forEach((el) => observer.observe(el));
-  return () => observer.disconnect();
-}, [upcomingEvents, carouselPhotos]);
+    const revealEls = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+    revealEls.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, [upcomingEvents, carouselPhotos]);
 
   useEffect(() => {
     const loadChurchData = async () => {
@@ -45,6 +46,7 @@ function Home() {
           setSlide(0);
         }
         setUpcomingEvents(data.events || []);
+        setFliers(data.fliers || []);
       } catch (err) {
         console.error(err);
       }
@@ -113,6 +115,21 @@ function Home() {
         </Link>
         </div>
       </section>
+
+      {fliers.length > 0 && (
+        <section className="fliers-section">
+          <div className="fliers-heading reveal">
+            <h2>Announcements</h2>
+          </div>
+          <div className="fliers-grid">
+            {fliers.map((flier) => (
+              <div className="flier-card reveal" key={flier.src}>
+                <img src={flier.src} alt={flier.alt || "Church announcement flier"} />
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
 
       <section className="events">
         <div className="events-heading reveal">
