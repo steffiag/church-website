@@ -14,6 +14,7 @@ function Home() {
   const [upcomingEvents, setUpcomingEvents] = useState([]);
   const [fliers, setFliers] = useState([]);
   const [flierSlide, setFlierSlide] = useState(0);
+  const [fliersPaused, setFliersPaused] = useState(false);
 
   useEffect(() => {
     const revealEls = document.querySelectorAll(".reveal");
@@ -72,6 +73,14 @@ function Home() {
     return () => clearInterval(interval);
   }, [fliers.length]);
 
+  useEffect(() => {
+    if (fliers.length <= 1 || fliersPaused) return;
+    const interval = setInterval(() => {
+      setFlierSlide((s) => (s + 1) % fliers.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [fliers.length, fliersPaused]);
+
   function formatEventDate(event) {
     const date = new Date(event.start?.dateTime || event.start?.date);
     return date.toLocaleDateString("en-US", {
@@ -127,7 +136,11 @@ function Home() {
 
       {fliers.length > 0 && (
         <section className="fliers-section reveal">
-          <div className="fliers-carousel">
+          <h2 className="fliers-heading">Announcements</h2>
+          <div
+            className="fliers-carousel"
+            onClick={() => setFliersPaused((p) => !p)}
+          >
             <div className="carousel-track">
               {fliers.map((flier, i) => (
                 <img
@@ -146,7 +159,10 @@ function Home() {
                   <button
                     key={i}
                     className={`dot ${i === flierSlide ? "active" : ""}`}
-                    onClick={() => setFlierSlide(i)}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setFlierSlide(i);
+                    }}
                     aria-label={`Go to flier ${i + 1}`}
                   />
                 ))}
