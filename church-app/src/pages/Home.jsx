@@ -144,6 +144,14 @@ function Home() {
                 />
               ))}
             </div>
+            {fliersPaused && (
+              <div className="fliers-paused-indicator" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <rect x="6" y="5" width="4" height="14" rx="1" />
+                  <rect x="14" y="5" width="4" height="14" rx="1" />
+                </svg>
+              </div>
+            )}
             {fliers.length > 1 && (
               <div className="carousel-dots">
                 {fliers.map((_, i) => (

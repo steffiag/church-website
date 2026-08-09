@@ -2254,3 +2254,26 @@ body {
 .fliers-carousel {
   cursor: pointer;
 }
+
+.fliers-paused-indicator {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 2;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 999px;
+  border: 1px solid rgba(156, 122, 60, 0.4);
+  background: rgba(250, 247, 240, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  animation: fadeUp 0.2s ease both;
+}
+
+.fliers-paused-indicator svg {
+  width: 1rem;
+  height: 1rem;
+  fill: var(--wine);
+}
