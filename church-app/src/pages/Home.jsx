@@ -116,7 +116,7 @@ function Home() {
         </div>
       </section>
 
-      {fliers.length > 0 && (
+      {/* {fliers.length > 0 && (
         <section className="fliers-section">
           <div className="fliers-heading reveal">
             <h2>Announcements</h2>
@@ -129,7 +129,7 @@ function Home() {
             ))}
           </div>
         </section>
-      )}
+      )} */}
 
       <section className="events">
         <div className="events-heading reveal">
