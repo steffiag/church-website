@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
@@ -10,6 +10,23 @@ function Home() {
   const [fliers, setFliers] = useState([]);
   const [flierSlide, setFlierSlide] = useState(0);
   const [fliersPaused, setFliersPaused] = useState(false);
+  const audioRef = useRef(null);
+  const [musicPlaying, setMusicPlaying] = useState(false);
+
+  const toggleMusic = () => {
+    if (musicPlaying) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play();
+    }
+    setMusicPlaying(!musicPlaying);
+  };
+
+  useEffect(() => {
+  if (audioRef.current) {
+    audioRef.current.volume = 0.02; 
+  }
+}, []);
 
   useEffect(() => {
     const revealEls = document.querySelectorAll(".reveal");
@@ -87,6 +104,14 @@ function Home() {
 
   return (
     <div className="App">
+      <audio ref={audioRef} src="/background-music.mp3" loop />
+      <button
+        onClick={toggleMusic}
+        className="music-toggle"
+        aria-label={musicPlaying ? "Pause background music" : "Play background music"}
+      >
+        {musicPlaying ? <span className="material-symbols-outlined">volume_up</span> : <span className="material-symbols-outlined">volume_off</span>}
+      </button>
       <header className="hero">
         <Navbar />
         <div className="hero-text">

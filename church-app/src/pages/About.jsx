@@ -69,7 +69,7 @@ function About() {
             </div>
           </div>
           <div className="about-image-slot">
-            <img id = "st-mary" src="/stmary-img.png" />
+            <img id = "st-mary" src="/mothermarypic.png" />
           </div>
         </div>
       </section>
@@ -224,6 +224,10 @@ function About() {
                 <tr>
                   <td data-label="Position">Prayer Meeting</td>
                   <td data-label="Name">Regi Markose</td>
+                </tr>
+                 <tr>
+                  <td data-label="Position">Headmaster</td>
+                  <td data-label="Name">Justin Mathew</td>
                 </tr>
               </tbody>
             </table>

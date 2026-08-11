@@ -2276,5 +2276,29 @@ body {
 }
 
 #st-mary{
-  object-position: center 25%;
+  object-position: top;
+}
+
+.music-toggle {
+  position: fixed;
+  bottom: 5rem;
+  right: 1.5rem;
+  z-index: 500;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 999px;
+  border: 2px solid var(--brass);
+  background: rgba(32, 29, 26, 0.75);
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: 0 12px 28px rgba(32, 29, 26, 0.15);
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.music-toggle:hover {
+  transform: translateY(-2px);
+}
+
+.music-toggle .material-symbols-outlined {
+  color: var(--brass);
 }
