@@ -119,7 +119,8 @@ function About() {
                 <h3>His Holiness Patriarch Moran Mor Ignatius Aphrem II</h3>
                 <span className="leadership-title">Patriarch</span>
                 <div className="about-body">
-                  <p>His Holiness Moran Mor Ignatius Aphrem II, the 122nd successor to St. Peter in the Apostolic See of Antioch, was born in Kamishly, Syria on May 3, 1965. On Sunday, January 28, 1996, He was consecrated as Metropolitan and Patriarchal Vicar to the Archdiocese of the Syriac Orthodox Church for the Eastern United States, by His Holiness Patriarch Zakka I Iwas, at St. Mary ‘s Syriac Orthodox Church in Kamishly. Throughout the years, he has visited, all the parishes, including ours, and formed a new Archdiocese Advisory Council to assist with the administration of the Archdiocese and its various programs; working closely with the parish boards and clergy to see that the spiritual and church needs of the faithful are fulfilled.</p>
+                  <p>His Holiness Moran Mor Ignatius Aphrem II, the 122nd successor to St. Peter in the Apostolic See of Antioch, was born in Kamishly, Syria on May 3, 1965. On Sunday, January 28, 1996, He was consecrated as Metropolitan and Patriarchal Vicar to the Archdiocese of the Syriac Orthodox Church for the Eastern United States, by His Holiness Patriarch Zakka I Iwas, at St. Mary ‘s Syriac Orthodox Church in Kamishly. 
+                    <br></br>Throughout the years, he has visited, all the parishes, including ours, and formed a new Archdiocese Advisory Council to assist with the administration of the Archdiocese and its various programs; working closely with the parish boards and clergy to see that the spiritual and church needs of the faithful are fulfilled.</p>
                 </div>
               </div>
             </div>
@@ -143,7 +144,7 @@ function About() {
                 <span className="leadership-title">Archbishop & Patriarchal Vicar</span>
                 <div className="about-body">
                   <p>
-                  His Holiness the Patriarch of Antioch and All The East, Moran Mor Ignatius Zakka I Iwas consecrated Very Rev. Ramban Yeldho Pathickal as the Archbishop and Patriarchal Vicar of the Malankara Archdiocese of the Syrian Orthodox Church in North America on January 4, 2004 at the solemn function held at the Monastery of St. Aphrem the Syrian, at Ma'arrat Seydnaya, Damascus, Syria. Metropolitan was given the Episcopal name 'TITUS' during the consecration ceremony. At the end of the Holy ceremony, the newly consecrated Archbishop thanked His Holiness the Patriarch Moran Mor Ignatius Zakka I Iwas and all those who were present. He pledged his allegiance to the Holy Syriac Orthodox Church and promised to be faithful in imparting the teachings of the Church to the devoted.
+                  His Holiness the Patriarch of Antioch and All The East, Moran Mor Ignatius Zakka I Iwas consecrated Very Rev. Ramban Yeldho Pathickal as the Archbishop and Patriarchal Vicar of the Malankara Archdiocese of the Syrian Orthodox Church in North America on January 4, 2004 at the solemn function held at the Monastery of St. Aphrem the Syrian, at Ma'arrat Seydnaya, Damascus, Syria. <br></br>Metropolitan was given the Episcopal name 'TITUS' during the consecration ceremony. At the end of the Holy ceremony, the newly consecrated Archbishop thanked His Holiness the Patriarch Moran Mor Ignatius Zakka I Iwas and all those who were present. He pledged his allegiance to the Holy Syriac Orthodox Church and promised to be faithful in imparting the teachings of the Church to the devoted.
                 </p>
                 </div>
               </div>
@@ -155,7 +156,7 @@ function About() {
       <section id = "vicar" className="about-section reveal">
         <div className="about-split">
           <div className="about-text">
-            <h2>Current Leadership</h2>
+            <h2>Vicar</h2>
             <div className="leadership-card">
               <div className="leadership-info">
                 <h3>Rev. Fr. Joy John</h3>
@@ -165,10 +166,9 @@ function About() {
                   Rev. Fr. Joy John has served as Vicar of St. Mary's Syrian
                   Orthodox Church, continuing the parish's tradition of faith
                   and community leadership.
-                  <br></br>
                   He has been an active pillar within our Church community. He has sought to engage all parish members, including 
                   the youth, by holding both English and Malayalam Holy Qurbanas. 
-                  <br></br>
+                  
                   He also is an active guide within various spiritual groups such as the St. Mary's Women League and Youth Association. 
                   
                 </p>
@@ -185,7 +185,7 @@ function About() {
      
           <section id="leadership" className="about-section about-section-alt reveal">
         <div className="leadership-table-wrap">
-          <h2>Office Leadership</h2>
+          <h2>Management Committee</h2>
           <div className="committee-list">
           <h3>Executive Officers</h3>
             <table className="leadership-table">
