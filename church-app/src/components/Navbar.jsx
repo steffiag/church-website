@@ -125,7 +125,7 @@ function Navbar() {
             >
               <Link to="/about#mission">Mission &amp; Vision</Link>
               <Link to="/about#history">History</Link>
-              <Link to="/about#patriach">Patriarch</Link>
+              <Link to="/about#patriarch">Patriarch</Link>
               <Link to="/about#archbishop">Archbishop</Link>
               <Link to="/about#vicar">Vicar</Link>
               <Link to="/about#leadership">Leadership</Link>

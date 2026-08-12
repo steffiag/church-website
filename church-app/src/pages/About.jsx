@@ -169,7 +169,7 @@ function About() {
                   He has been an active pillar within our Church community. He has sought to engage all parish members, including 
                   the youth, by holding both English and Malayalam Holy Qurbanas. 
                   <br></br>
-                  He also is an active guide within various spirituals groups within our church such as the St. Mary's Women League and Youth Association. 
+                  He also is an active guide within various spiritual groups such as the St. Mary's Women League and Youth Association. 
                   
                 </p>
                 </div>
