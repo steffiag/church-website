@@ -87,10 +87,7 @@ export default async function handler(req, res) {
       alt: file.name,
     }));
 
-    res.setHeader(
-      "Cache-Control",
-      "s-maxage=600, stale-while-revalidate=3600"
-    );
+    res.setHeader("Cache-Control", "s-maxage=60, stale-while-revalidate=120");
 
     return res.status(200).json({
       photos,
