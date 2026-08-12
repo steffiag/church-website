@@ -1495,7 +1495,6 @@ body {
 
 .leadership-card {
   padding: 2rem 2.25rem;
-  background: rgba(250, 247, 240, 0.6);
 }
 
 .leadership-info h3 {
@@ -1519,8 +1518,8 @@ body {
 
 .leadership-info p {
   font-family: var(--font-display);
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 1.08rem;
+  line-height: 1.75;
   color: var(--ink-soft);
   margin: 0;
 }
@@ -2094,6 +2093,7 @@ body {
   color: var(--wine);
   margin: 0 0 1rem;
   text-align: left;
+  text-decoration: underline;
 }
 
 .email-link, .footer-call {
