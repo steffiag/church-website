@@ -172,7 +172,7 @@ function Home() {
                 </svg>
               </div>
             )}
-            {fliers.length > 1 && (
+            {fliers.length > 1 && !fliersPaused && (
               <div className="carousel-dots">
                 {fliers.map((_, i) => (
                   <button
