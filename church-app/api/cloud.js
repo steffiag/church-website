@@ -8,7 +8,7 @@ export default async function handler(req, res) {
   const driveFolderId = "19DdkGE9jYp0ay-njtsH547K5_SB5PRvm";
   const fliersFolderId = "1SGVTv7mGVg45lQnZgiORXIrDhRTXuDQX";
   const calendarId =
-    "5b8ff01dbf9d0673c45b8f8334ca65b415483f943798e323048d1460d2b7f9e3@group.calendar.google.com";
+    "e546908295cddda937f5d64ad2467b2c8ee08ced51eb0494dfcd33490a935743@group.calendar.google.com";
 
   if (!apiKey) {
     return res.status(500).json({ error: "Church data is not configured" });
