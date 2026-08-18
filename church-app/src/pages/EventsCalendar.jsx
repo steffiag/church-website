@@ -223,7 +223,7 @@ function EventsCalendar() {
                             <div className="calendar-day-events">
                             {dayEvents.slice(0, 3).map((event) => (
                                 <span className="calendar-day-event-title" key={event.id}>
-                                  {getEventTime(event)} — {event.summary}
+                                {event.summary} <br></br>{getEventTime(event)} 
                                 </span>
                             ))}
                             {dayEvents.length > 3 && (
