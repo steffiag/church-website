@@ -12,11 +12,42 @@ function dateKey(year, month, day) {
   return `${year}-${String(month + 1).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
 }
 
-function getEventDateKey(event) {
-  const raw = event.start?.dateTime || event.start?.date;
-  if (!raw) return null;
-  const d = new Date(raw);
-  return dateKey(d.getFullYear(), d.getMonth(), d.getDate());
+function getEventDateKeys(event) {
+  if (!event.start) return [];
+
+  if (event.start.date) {
+    const start = new Date(`${event.start.date}T00:00:00`);
+    const end = new Date(`${event.end.date}T00:00:00`);
+
+    const keys = [];
+
+    for (let d = new Date(start); d < end; d.setDate(d.getDate() + 1)) {
+      keys.push(dateKey(d.getFullYear(), d.getMonth(), d.getDate()));
+    }
+
+    return keys;
+  }
+
+  if (event.start.dateTime) {
+    const start = new Date(event.start.dateTime);
+    const end = event.end?.dateTime
+      ? new Date(event.end.dateTime)
+      : new Date(start);
+
+    const keys = [];
+
+    for (
+      let d = new Date(start.getFullYear(), start.getMonth(), start.getDate());
+      d <= new Date(end.getFullYear(), end.getMonth(), end.getDate());
+      d.setDate(d.getDate() + 1)
+    ) {
+      keys.push(dateKey(d.getFullYear(), d.getMonth(), d.getDate()));
+    }
+
+    return [...new Set(keys)];
+  }
+
+  return [];
 }
 
 function getEventTime(event) {
@@ -70,7 +101,6 @@ function EventsCalendar() {
   const [viewDate, setViewDate] = useState(new Date(today.getFullYear(), today.getMonth(), 1));
   const [eventsByDate, setEventsByDate] = useState({});
   const [status, setStatus] = useState("loading");
-  const [selectedDay, setSelectedDay] = useState(null);
 
   useEffect(() => {
     const revealEls = document.querySelectorAll(".reveal");
@@ -118,10 +148,11 @@ function EventsCalendar() {
         const data = await res.json();
         const grouped = {};
         (data.items || []).forEach((event) => {
-          const key = getEventDateKey(event);
-          if (!key) return;
-          if (!grouped[key]) grouped[key] = [];
-          grouped[key].push(event);
+          const keys = getEventDateKeys(event);
+          keys.forEach((key) => {
+            if (!grouped[key]) grouped[key] = [];
+            grouped[key].push(event);
+          });
         });
 
         setEventsByDate(grouped);
@@ -139,10 +170,6 @@ function EventsCalendar() {
   const goToPrevMonth = () => setViewDate(new Date(year, month - 1, 1));
   const goToNextMonth = () => setViewDate(new Date(year, month + 1, 1));
   const goToToday = () => setViewDate(new Date(today.getFullYear(), today.getMonth(), 1));
-
-  const selectedEvents = selectedDay
-    ? eventsByDate[dateKey(selectedDay.getFullYear(), selectedDay.getMonth(), selectedDay.getDate())] || []
-    : [];
 
   return (
     <div className="App">
@@ -186,7 +213,6 @@ function EventsCalendar() {
                   const key = dateKey(date.getFullYear(), date.getMonth(), date.getDate());
                   const dayEvents = eventsByDate[key] || [];
                   const isToday = isSameDay(date, today);
-                  const isSelected = selectedDay && isSameDay(date, selectedDay);
 
                   return (
                     <div
@@ -199,7 +225,7 @@ function EventsCalendar() {
                             <div className="calendar-day-events">
                             {dayEvents.slice(0, 3).map((event) => (
                                 <span className="calendar-day-event-title" key={event.id}>
-                                {event.summary}
+                                  {getEventTime(event)} — {event.summary}
                                 </span>
                             ))}
                             {dayEvents.length > 3 && (
