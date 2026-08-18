@@ -86,11 +86,43 @@ function Home() {
   }, [fliers.length, fliersPaused]);
 
   function formatEventDate(event) {
-    const date = new Date(event.start?.dateTime || event.start?.date);
-    return date.toLocaleDateString("en-US", {
+    if (!event.start) return "";
+
+    const start = new Date(
+      event.start.dateTime || `${event.start.date}T00:00:00`
+    );
+
+    const end = event.end
+      ? new Date(
+          event.end.dateTime || `${event.end.date}T00:00:00`
+        )
+      : null;
+    if (event.start.date && event.end?.date) {
+      end.setDate(end.getDate() - 1);
+    }
+
+    if (!end || start.toDateString() === end.toDateString()) {
+      return start.toLocaleDateString("en-US", {
+        month: "short",
+        day: "numeric",
+      });
+    }
+    if (
+      start.getMonth() === end.getMonth() &&
+      start.getFullYear() === end.getFullYear()
+    ) {
+      return `${start.toLocaleDateString("en-US", {
+        month: "short",
+        day: "numeric",
+      })}–${end.getDate()}`;
+    }
+    return `${start.toLocaleDateString("en-US", {
       month: "short",
       day: "numeric",
-    });
+    })}–${end.toLocaleDateString("en-US", {
+      month: "short",
+      day: "numeric",
+    })}`;
   }
 
   function formatEventTime(event) {
