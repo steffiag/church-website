@@ -124,8 +124,6 @@ function EventsCalendar() {
   const weeks = buildMonthMatrix(year, month);
 
   useEffect(() => {
-    setSelectedDay(null);
-
     const rangeStart = weeks[0][0].date;
     const rangeEnd = weeks[weeks.length - 1][6].date;
     const timeMax = new Date(rangeEnd);
