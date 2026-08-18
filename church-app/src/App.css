@@ -2252,12 +2252,14 @@ body {
   }
 }
 
-.member-name {
-  display: inline;
+.member-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
 }
 
-.member-name:not(:last-child)::after {
-  content: ", ";
+.member-name {
+  display: block;
 }
 
 @media (max-width: 700px) {
@@ -2302,3 +2304,4 @@ body {
 .music-toggle .material-symbols-outlined {
   color: var(--brass);
 }
+
