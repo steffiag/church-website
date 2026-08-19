@@ -14,11 +14,12 @@ function Footer() {
             <p><a href="mailto:stmarysbergen@gmail.com" className="email-link">stmarysbergen@gmail.com</a></p>
           </div>
         </div>
+        <p className="credit">Website Developed by Steffia George</p>
       </div>
 
       <div className="footer-col footer-social reveal">
         <div className="social-circles">
-          <a href="#" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.facebook.com/share/19YJ2tV2sH/?mibextid=wwXIfr" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 256 256" aria-hidden="true">
               <path d="M128,25.6c-56.55,0 -102.4,45.85 -102.4,102.4c0,51.34 37.82,93.73 87.09,101.14v-73.98h-25.34v-26.91h25.34v-17.91c0,-29.65 14.45,-42.67 39.09,-42.67c11.8,0 18.05,0.88 21,1.27v23.49h-16.81c-10.46,0 -14.11,9.92 -14.11,21.1v14.72h30.66l-4.16,26.91h-26.5v74.21c49.98,-6.78 88.54,-49.51 88.54,-101.37c0,-56.55 -45.85,-102.4 -102.4,-102.4z" />
             </svg>

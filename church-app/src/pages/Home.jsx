@@ -12,7 +12,7 @@ function Home() {
   const [fliersPaused, setFliersPaused] = useState(false);
   const audioRef = useRef(null);
   const [musicPlaying, setMusicPlaying] = useState(false);
-
+  
   const toggleMusic = () => {
     if (musicPlaying) {
       audioRef.current.pause();

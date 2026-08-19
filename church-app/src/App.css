@@ -2305,3 +2305,11 @@ body {
   color: var(--brass);
 }
 
+.credit {
+  margin: 2rem 0 0;
+  text-align: left;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  letter-spacing: 0.04em;
+  color: var(--brass);
+}

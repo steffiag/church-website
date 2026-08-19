@@ -268,8 +268,8 @@ function About() {
                 <td data-label="Position">Committee Members</td>
                 <td data-label="Name">
                   <span className="member-list">
-                    <span className="member-name">Ms. Sony Abraham</span>
-                    <span className="member-name">Ms. Ammini Mathew</span>
+                    <span className="member-name">Mrs. Sony Abraham</span>
+                    <span className="member-name">Mrs. Ammini Mathew</span>
                     <span className="member-name">Mr. Cherian Mathew</span>
                     <span className="member-name">Mr. Joy Varghese</span>
                     <span className="member-name">Mr. Thomas Issac</span>
@@ -306,9 +306,9 @@ function About() {
                 <td data-label="Position">Family Night Coordinators</td>
                   <td data-label="Name">
                     <span className="member-list">
-                      <span className="member-name">Ms. Sumi Poulose</span>
-                      <span className="member-name">Ms. Reeja Chackochan</span>
-                      <span className="member-name">Ms. Roshni Paul</span>
+                      <span className="member-name">Mrs. Sumi Poulose</span>
+                      <span className="member-name">Mrs. Reeja Chackochan</span>
+                      <span className="member-name">Mrs. Roshni Paul</span>
                     </span>
                   </td>
                 </tr>
