@@ -2313,3 +2313,7 @@ body {
   letter-spacing: 0.04em;
   color: var(--brass);
 }
+
+#name{
+  color: rgba(250, 247, 240, 0.7);
+}

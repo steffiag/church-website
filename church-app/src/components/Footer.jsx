@@ -14,7 +14,7 @@ function Footer() {
             <p><a href="mailto:stmarysbergen@gmail.com" className="email-link">stmarysbergen@gmail.com</a></p>
           </div>
         </div>
-        <p className="credit">Website Developed by Steffia George</p>
+        <p className="credit">Website Developed by <span id = "name">Steffia George</span></p>
       </div>
 
       <div className="footer-col footer-social reveal">
