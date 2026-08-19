@@ -1648,7 +1648,7 @@ body {
   text-align: center;
   font-family: var(--font-display);
   font-style: italic;
-  font-size: 0.85rem;
+  font-size: 1.0rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
