@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState, useRef } from "react";
 
-const FADE_INTERVAL = 3000;
+const FADE_INTERVAL = 6000;
 
 function Navbar() {
   const [announcements, setAnnouncements] = useState([]);
