@@ -1650,8 +1650,9 @@ body {
   font-style: italic;
   font-size: 0.9rem;
   white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  overflow: visible;
+  text-overflow: clip;
+  width: max-content;
   opacity: 0;
   transition: opacity 0.8s ease;
   pointer-events: none;
@@ -1707,7 +1708,7 @@ body {
   .announcement-text.is-active {
     opacity: 1;
   }
-  
+
   .announcement-text.long {
     animation: announcement-scroll 12s linear infinite;
   }
