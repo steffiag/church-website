@@ -1684,6 +1684,43 @@ body {
   .announcement-banner {
     padding: 0.6rem 2.5rem 0.6rem var(--gutter-sm);
   }
+
+  .announcement-track {
+    height: 1.3rem;
+    overflow: hidden;
+  }
+
+  .announcement-text {
+    position: static;
+    display: block;
+    width: max-content;
+    max-width: none;
+
+    white-space: nowrap;
+    overflow: visible;
+    text-overflow: clip;
+
+    opacity: 0;
+    transform: translateX(0);
+  }
+
+  .announcement-text.is-active {
+    opacity: 1;
+  }
+  
+  .announcement-text.long {
+    animation: announcement-scroll 12s linear infinite;
+  }
+
+  @keyframes announcement-scroll {
+    from {
+      transform: translateX(100vw);
+    }
+
+    to {
+      transform: translateX(-100%);
+    }
+  }
 }
 
 .donate-section {
