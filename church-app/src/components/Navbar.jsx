@@ -69,7 +69,7 @@ function Navbar() {
               <span
                 className={`announcement-text ${
                   i === activeIndex ? "is-active" : ""
-                } ${text.length > 60 ? "long" : ""}`}
+                }`}
                 key={i}
               >
                 {text}
